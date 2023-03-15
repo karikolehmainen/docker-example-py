@@ -10,7 +10,6 @@ ma = Marshmallow(app)
 cors = CORS(app)
 api = Api(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-Base = declarative_base()
 
 def prepare_error_response(message):
 	return {'status_code': 500, 'message': message}

@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED=1
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
 ENV PORT=5000
-ENV ADDR="0.0.0.0:"%PORT%
 WORKDIR /app
 COPY . /app
-CMD ["gunicorn", "--bind", "${ADDR}", "endpoints:app"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT example-app:app"]
+#CMD ["gunicorn", "--bind", "$ADDR", "endpoints:app"]
