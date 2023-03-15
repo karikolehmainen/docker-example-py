@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:  
+  example:
+    container_name: docker-example-py
+    image: ghcr.io/karikolehmainen/docker-example-py:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=5000
+    ports:
+      - 5001:5000
+    networks:
+      - internal-network
+
+networks:
+    internal-network:
+      driver: bridge
