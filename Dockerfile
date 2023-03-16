@@ -7,4 +7,5 @@ ENV PORT=5000
 WORKDIR /app
 COPY . /app
 CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:$PORT example-app:app"]
-#CMD ["gunicorn", "--bind", "$ADDR", "endpoints:app"]
+
+
